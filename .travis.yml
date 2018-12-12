@@ -1,0 +1,15 @@
+language: node
+sudo: false
+install:
+- npm i && npm i -g pkg
+script:
+- mkdir releases
+- pkg index.js --targets=linux,macos,win -o loadVaultConfigs
+- mv loadVaulConfigs-* releases/
+deploy:
+  provider: releases
+  api_key:
+    secure: lE81j3gsEaWshj2uDNzvbdgHAUEZWRqQ7m9SQ4VRG+//62+52P9V+LF9BNf4md2aln549hoCt1jh7SwZ1YLXrYtSnz7lu3IIhc9j8FbFcBV3/97bqAzWs2xR7XAGELmiL9DeXvuPdG4qCT07OrWe7Ia+VBEYkbrDwSOD/eU2tOjQDW0LVFjS4bYnZ42c4LVG0pbUkjsxJoXTQ8vl1v51sCqKA0yQbfUmsaVlfUEqkQtfkOmOjK8EWGkU8eyefqZbwkkN5Y4K94Qg7YLIYK9pzsKhfjxM9hGWXCEfSiKMD3Z6D99EstewQxSrGcJtV7El/e3OQwZMU01WoBhFBEwp89CHVUhdDZDLqZI+ZJYabc/XeU62VcRk2HMNTEu5LuF5cRho6mIYBkm+EpTPrC74pExc3D2EOiG0t2flSN9vh3p+cXsh9qU39E0F/Kll3ZrpIjDzQxUyqnUyYf7r4aiXt48IK/k/x5Zertxvy8uH99SSMZ8nDeTEK3WzpVXbe1/NYgEvSzO5/xLujEXix01StxdyErOROnEaJtVV55y9P4pzBFj+dO7vspD51X6CXOoC3eHAZrX2JwzVNcXb1F+e//cUtXJResdoF0wYBhWv0KfLXQ8eBH9AEfq1MI7KEgA59AFVkzNMh1xhReRhmtP3I/OidK9QY05zNEdykwJGZmw=
+  file: releases/*
+  on:
+    repo: aequasi/load-vault-config
