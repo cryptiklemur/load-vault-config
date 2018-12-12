@@ -11,6 +11,7 @@ install:
 script:
 - mkdir releases
 - pkg index.js --targets=linux,macos,win -o loadVaultConfigs
+- ls -lha
 - mv loadVaulConfigs-* releases/
 
 deploy:
