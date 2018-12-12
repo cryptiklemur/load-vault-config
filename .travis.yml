@@ -1,11 +1,18 @@
-language: node
+language: node_js
+
+node_js:
+- "10"
+
 sudo: false
+
 install:
 - npm i && npm i -g pkg
+
 script:
 - mkdir releases
 - pkg index.js --targets=linux,macos,win -o loadVaultConfigs
 - mv loadVaulConfigs-* releases/
+
 deploy:
   provider: releases
   api_key:
