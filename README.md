@@ -18,7 +18,11 @@ secrets:
 
 Then run: 
 ```bash
-$ ENVIRONMENT=production loadVaultConfigs config.yaml
+$ VAULT_ADDR=my_vault_addr VAULT_TOKEN=my_vault_token ENVIRONMENT=production loadVaultConfigs config.yaml
+
+// This also works
+
+$ VAULT_ADDR=my_vault_addr VAULT_ROLE_ID=role_id VAULT_SECRET_ID=secret_id ENVIRONMENT=production loadVaultConfigs config.yaml
 ```
 
 Which will output:
