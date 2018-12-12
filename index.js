@@ -3,6 +3,14 @@ const InitializeVault = require('node-vault');
 const {execSync} = require('child_process');
 const {resolve} = require('path');
 
+if (!process.env.VAULT_ADDR) {
+    process.env.VAULT_ADDR = 'https://127.0.0.1:8200'
+}
+if (!process.env.VAULT_TOKEN && !process.env.VAULT_ROLE_ID) {
+    console.error("A vault authentication method must be supplied.");
+    process.exit(0);
+}
+
 async function run(configPath) {
     const values = {};
 
