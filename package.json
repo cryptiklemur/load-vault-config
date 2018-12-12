@@ -1,0 +1,19 @@
+{
+    "name": "load-vault-configs",
+    "version": "1.0.0",
+    "description": "Loads vault configs and echos them out",
+    "main": "index.js",
+    "author": "Aaron Scherer <aequasi@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "pkg": "rm -r releases; mkdir releases && pkg index.js --targets=linux,macos,win -o loadVaultConfigs && mv loadVaultConfigs* releases/"
+    },
+    "dependencies": {
+        "node-vault": "^0.9.5",
+        "yaml": "^1.1.0"
+    },
+    "devDependencies": {
+        "@types/node-vault": "^0.5.3",
+        "@types/yaml": "^1.0.1"
+    }
+}
