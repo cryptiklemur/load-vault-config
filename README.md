@@ -22,8 +22,10 @@ $ VAULT_ADDR=my_vault_addr VAULT_TOKEN=my_vault_token ENVIRONMENT=production loa
 
 // This also works
 
-$ VAULT_ADDR=my_vault_addr VAULT_ROLE_ID=role_id VAULT_SECRET_ID=secret_id ENVIRONMENT=production loadVaultConfigs config.yaml
+$ VAULT_ROLE_ID=role_id VAULT_SECRET_ID=secret_id ENVIRONMENT=production loadVaultConfigs config.yaml
 ```
+
+Note: `VAULT_ADDR` is not required. Will be the default vault address by default. One of the authentication methods must be used though (token or approle)
 
 Which will output:
 
