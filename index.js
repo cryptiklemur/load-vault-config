@@ -51,7 +51,12 @@ async function run(configPath) {
             }
         }
 
-        result.push(`${key}="${values[path][key].replace(/\n/g, '\\n')}"`);
+        let value = values[path][key];
+        if (typeof value === 'string') {
+            value = value.replace(/\n/g, '\\n');
+        }
+
+        result.push(`${key}="${value}"`);
     }
 
     return result.join("\n");
