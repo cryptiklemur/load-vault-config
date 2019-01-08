@@ -1,4 +1,5 @@
 # load-vault-config
+[![Build Status](https://travis-ci.org/aequasi/load-vault-config.svg?branch=master)](https://travis-ci.org/aequasi/load-vault-config)
 
 This is a small packaged script that lets you load vault secrets into bash environment variables for consumption via other scripts.
 
