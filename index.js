@@ -43,7 +43,12 @@ async function run(configPath) {
         const path = config.secrets[x].path;
         const key = config.secrets[x].key;
         if (!values[path]) {
-            values[path] = (await vault.read(path)).data;
+            try {
+                values[path] = (await vault.read(path)).data;
+            } catch (e) {
+                console.error(`Failed to read: ${path} - ${key}`, e);
+                continue;
+            }
         }
 
         result.push(`${key}="${values[path][key]}"`);
